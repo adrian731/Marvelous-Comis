@@ -1,16 +1,47 @@
-from bottle import route, default_app
+from bottle import route, default_app, template, get, post
 
-@route('/name/<name>')
-def nameindex(name='Stranger'):
-    return '<strong>Hello, %s!</strong>' % name
- 
-@route('/')
-def index():
-    return '<strong>Hello World!</strong>'
+@bottle.get('/')
+def home_page():
+	return template('index.tpl')
+	
+@bottle.get('/busqueda1')
+def busqueda1():
+	busqueda=raw_input("Introduce un nombre a buscar: ")
+payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
+payload['name']=busqueda
+r=requests.get(url_base+'v1/public/characters',params=payload)
+if r.status_code == 200:
+	js=json.loads(r.text)
+	idchar=js["data"]["results"][0]["id"]
+	total=js["data"]["results"][0]["comics"]["available"]
+	print idchar, total
+else: 
+	print "No existe ningún personaje con ese nombre"
 
-# This must be added in order to do correct path lookups for the views
-import os
-from bottle import TEMPLATE_PATH
-TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi/views/')) 
+payload2 = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
+payload2['characters']=idchar 
+payload2['limit']="100"
+r=requests.get(url_base+'v1/public/comics',params=payload)
 
-application=default_app()
+
+limit=100
+varoffset=0
+idcomics=[]
+urlcomics=[]
+imgcomics=[]
+cantidad=(total//100)+2
+for i in xrange(1,cantidad):
+	payload2['offset']=str(varoffset)
+	r=requests.get(url_base+'v1/public/comics',params=payload2)
+	if r.status_code == 200:
+		print r.url
+		js=json.loads(r.text)
+		for c in js["data"]["results"]:
+			idcomic=c["id"]
+			url=c["resourceURI"]
+			img=c["thumbnail"]["path"]+".jpg"
+			idcomics.append(idcomic)
+			urlcomics.append(url)
+			imgcomics.append(img)
+	varoffset=varoffset+100
+return template('busqueda1.tpl')
