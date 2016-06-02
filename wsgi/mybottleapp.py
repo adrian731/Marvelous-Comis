@@ -55,7 +55,10 @@ def busqueda1():
 		varoffset=varoffset+100
 	return template('busqueda1.tpl')
 """
-
+@route('/static/<filepath:path>')
+def server_static(filepath):
+	return static_file(filepath, root='static')
+	
 import os
 from bottle import TEMPLATE_PATH
 TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'],'wsgi/view/'))
