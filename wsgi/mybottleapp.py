@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from bottle import route, default_app, template, get, pos, request, response, redirect, default_app, static_file, TEMPLATE_PATH, lxml, etree, urllib2, json, 
 
 @bottle.get('/')

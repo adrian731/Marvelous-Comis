@@ -1,7 +1,3 @@
-<html>
-<head>
-</head>
-<body>
 <!-- Footer -->
 				<div id="footer">
 					
