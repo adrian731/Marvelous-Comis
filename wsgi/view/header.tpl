@@ -26,3 +26,5 @@
 								<a href="#banner" class="button circled scrolly">Start</a>
 							</footer>
 						</div>
+	</body>
+</html>
