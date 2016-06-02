@@ -12,7 +12,7 @@ import os
 
 @bottle.get('/')	
 def home_page():
-		return template('index.tpl')
+	return template('index.tpl')
 	
 """@bottle.get('/busqueda1')
 def busqueda1():
