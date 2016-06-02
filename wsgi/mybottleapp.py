@@ -10,9 +10,9 @@ from HTMLParser import HTMLParser
 from urlparse import parse_qs
 import os
 
-@bottle.get('/')
+@bottle.get('/')	
 def home_page():
-	return template('index.tpl')
+		return template('index.tpl')
 	
 """@bottle.get('/busqueda1')
 def busqueda1():
@@ -27,10 +27,13 @@ def busqueda1():
 		print idchar, total
 	else: 
 		print "No existe ningún personaje con ese nombre"
+
 	payload2 = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
 	payload2['characters']=idchar 
 	payload2['limit']="100"
 	r=requests.get(url_base+'v1/public/comics',params=payload)
+
+
 	limit=100
 	varoffset=0
 	idcomics=[]
@@ -52,3 +55,10 @@ def busqueda1():
 				imgcomics.append(img)
 		varoffset=varoffset+100
 	return template('busqueda1.tpl')
+"""
+
+import os
+from bottle import TEMPLATE_PATH
+TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'],'wsgi/view/'))
+
+application=default_app()
