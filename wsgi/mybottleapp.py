@@ -14,7 +14,7 @@ import os
 def home_page():
 	return template('index.tpl')
 	
-@bottle.get('/busqueda1')
+"""@bottle.get('/busqueda1')
 def busqueda1():
 	busqueda=raw_input("Introduce un nombre a buscar: ")
 	payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
@@ -27,13 +27,10 @@ def busqueda1():
 		print idchar, total
 	else: 
 		print "No existe ningún personaje con ese nombre"
-
 	payload2 = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
 	payload2['characters']=idchar 
 	payload2['limit']="100"
 	r=requests.get(url_base+'v1/public/comics',params=payload)
-
-
 	limit=100
 	varoffset=0
 	idcomics=[]
