@@ -9,7 +9,7 @@ from HTMLParser import HTMLParser
 from urlparse import parse_qs
 import os
 
-@bottle.get('/')	
+@get('/')	
 def home_page():
 	return template('index.tpl')
 	
