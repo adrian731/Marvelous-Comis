@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from bottle import route, default_app, template, get, post, request, response, redirect, default_app, static_file, TEMPLATE_PATH, error, redirect
-from lxml import etree
 import urllib2
 import requests
 import json
