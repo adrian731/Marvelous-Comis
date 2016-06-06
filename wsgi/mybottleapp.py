@@ -54,7 +54,7 @@ def busqueda1():
 				imgcomics.append(img)
 		varoffset=varoffset+100
 	return template('busqueda1.tpl')
-"""
+
 @route('/static/<filepath:path>')
 def server_static(filepath):
 	return static_file(filepath, root='static')
