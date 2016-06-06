@@ -13,7 +13,7 @@ import os
 def home_page():
 	return template('index.tpl')
 	
-"""@bottle.get('/busqueda1')
+@bottle.get('/busqueda1')
 def busqueda1():
 	busqueda=raw_input("Introduce un nombre a buscar: ")
 	payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
