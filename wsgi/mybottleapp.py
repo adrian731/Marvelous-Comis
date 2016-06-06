@@ -17,9 +17,9 @@ def home_page():
 def busqueda1():
 	return template('busqueda1.tpl')
 
-@post('/busqueda1')
+@post('/respuesta1')
 def busqueda1():
-	busqueda=raw_input("Introduce un nombre a buscar: ")
+	destino=request.forms.get('name')
 	payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
 	payload['name']=busqueda
 	r=requests.get(url_base+'v1/public/characters',params=payload)
@@ -55,7 +55,7 @@ def busqueda1():
 				urlcomics.append(url)
 				imgcomics.append(img)
 		varoffset=varoffset+100
-	return "<p> Todo correcto </p>"
+	return "<p>"name"</p>"
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
