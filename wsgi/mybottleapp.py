@@ -15,6 +15,10 @@ def home_page():
 	
 @get('/busqueda1')
 def busqueda1():
+	return template('busqueda1.tpl')
+
+@post('/busqueda1')
+def busqueda1():
 	busqueda=raw_input("Introduce un nombre a buscar: ")
 	payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
 	payload['name']=busqueda
@@ -31,8 +35,6 @@ def busqueda1():
 	payload2['characters']=idchar 
 	payload2['limit']="100"
 	r=requests.get(url_base+'v1/public/comics',params=payload)
-
-
 	limit=100
 	varoffset=0
 	idcomics=[]
@@ -53,8 +55,7 @@ def busqueda1():
 				urlcomics.append(url)
 				imgcomics.append(img)
 		varoffset=varoffset+100
-	return "<p>prueba</p>"	
-	#return template('busqueda1.tpl')
+	return "<p> Todo correcto </p>"
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
