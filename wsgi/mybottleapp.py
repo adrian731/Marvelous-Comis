@@ -53,7 +53,8 @@ def busqueda1():
 				urlcomics.append(url)
 				imgcomics.append(img)
 		varoffset=varoffset+100
-	return template('busqueda1.tpl')
+	return "<p>prueba</p>"	
+	#return template('busqueda1.tpl')
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
