@@ -55,7 +55,7 @@ def busqueda1():
 				urlcomics.append(url)
 				imgcomics.append(img)
 		varoffset=varoffset+100
-	return "<p>"name"</p>"
+	return name
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
