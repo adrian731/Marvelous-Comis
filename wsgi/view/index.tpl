@@ -18,12 +18,6 @@
 				<section id="banner">
 					<header>
 						<h2>Welcome to my Marvel comic's search engine</h2>
-						<p>
-							Marvelous comics is my personal class proyect. <a href="ies.gonzalonazareno.org">IES Gonzalo Nazareno</a>.
-						</p>
-						<p>
-							Created by <strong>Adrián Domínguez Jiménez</strong> <a href="https://github.com/adrian731/Marvelous-Comis">Github</a>
-						</p>
 					</header>
 				</section>
 %include('footer.tpl')
