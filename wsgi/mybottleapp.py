@@ -19,7 +19,7 @@ def busqueda1():
 
 @post('/resultado1')
 def busqueda1():
-	destino=request.forms.get('name')
+	name=request.forms.get('name')
 	payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
 	payload['name']=name
 	r=requests.get(url_base+'v1/public/characters',params=payload)
