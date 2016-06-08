@@ -2,8 +2,8 @@
 		<table>
 		%for x,y,z in zip(img,url,idcomic):
 			<tr>
-			<td><img src="{{x}}"/></td>
-			<td>{{y}}</td>
+			<td><a href="{{y}}"><img src="{{x}}"/></a></td>
+			
 			<td>{{z}}</td>
 			<tr>
 		%end

@@ -52,7 +52,7 @@ def busqueda1():
 			for c in js["data"]["results"]:
 				idcomic=c["id"]
 				url=c["resourceURI"]
-				img=c["thumbnail"]["path"]+"/portrait_small.jpg"
+				img=c["thumbnail"]["path"]+"/portrait_xlarge.jpg"
 				idcomics.append(idcomic)
 				urlcomics.append(url)
 				imgcomics.append(img)
