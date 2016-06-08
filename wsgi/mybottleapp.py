@@ -58,7 +58,7 @@ def busqueda1():
 				imgcomics.append(img)
 		varoffset=varoffset+100
 	
-	return template('resultado1.tpl',url=url,img=img,idcomic=idcomic)
+	return template('resultado1.tpl',url=urlcomics,img=imgcomics,idcomic=idcomics)
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
