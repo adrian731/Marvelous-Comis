@@ -41,6 +41,7 @@ def busqueda1():
 	idcomics=[]
 	urlcomics=[]
 	imgcomics=[]
+	final={}********************************************************************************************++
 	cantidad=(total//100)+2
 	for i in xrange(1,cantidad):
 		payload2['offset']=str(varoffset)
@@ -56,7 +57,8 @@ def busqueda1():
 				urlcomics.append(url)
 				imgcomics.append(img)
 		varoffset=varoffset+100
-	return name
+	
+	return template(resultado1.tpl,doc=doc, )
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
