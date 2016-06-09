@@ -16,6 +16,10 @@ def home_page():
 @get('/busqueda1')
 def busqueda1():
 	return template('busqueda1.tpl')
+	
+@get('/busqueda2')
+def busqueda2():
+	return template('busqueda2.tpl')
 
 @post('/resultado1')
 def busqueda1():
