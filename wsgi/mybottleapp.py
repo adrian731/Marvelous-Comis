@@ -64,7 +64,7 @@ def busqueda1():
 	
 	return template('resultado1.tpl',url=urlcomics,img=imgcomics,idcomic=idcomics)
 	
-"""@post('/resultado2')
+""" @post('/resultado2')
 def busqueda2():
 	url_base='http://gateway.marvel.com/'
 	name=request.forms.get('name')
@@ -105,7 +105,7 @@ def busqueda2():
 				imgcomics.append(img)
 		varoffset=varoffset+100
 	
-    """Character 2"""
+   """"""Character 2""""""
 payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
 payload['name2']=busqueda2
 r=requests.get(url_base+'v1/public/characters',params=payload)
