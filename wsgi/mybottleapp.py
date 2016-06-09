@@ -43,6 +43,7 @@ def busqueda1():
 	limit=100
 	varoffset=0
 	idcomics=[]
+	urlcomics=[]
 	imgcomics=[]
 	final={}
 	cantidad=(total//100)+2
@@ -54,12 +55,14 @@ def busqueda1():
 			js=json.loads(r.text)
 			for c in js["data"]["results"]:
 				idcomic=c["id"]
+				url=c["resourceURI"]
 				img=c["thumbnail"]["path"]+"/portrait_xlarge.jpg"
 				idcomics.append(idcomic)
+				urlcomics.append(url)
 				imgcomics.append(img)
 		varoffset=varoffset+100
 	
-	return template('resultado1.tpl',img=imgcomics,idcomic=idcomics)
+	return template('resultado1.tpl',url=urlcomics,img=imgcomics,idcomic=idcomics)
 	
 """ @post('/resultado2')
 def busqueda2():
