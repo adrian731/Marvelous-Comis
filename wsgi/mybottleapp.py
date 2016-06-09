@@ -153,7 +153,7 @@ for i1,u,m in zip(idcomics,urlcomics,imgcomics):
 		idcomicsf.append(i1)
 		urlcomicsf.append(u)
 		imgcomics.append(m)
-	return template('resultado2.tpl',img=imgcomicsf,idcomic=idcomics)
+return template('resultado2.tpl',img=imgcomicsf,idcomic=idcomics)
 
 
 @route('/static/<filepath:path>')
