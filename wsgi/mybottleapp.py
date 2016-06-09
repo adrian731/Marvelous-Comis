@@ -100,7 +100,6 @@ def busqueda2():
 				idcomic=c["id"]
 				img=c["thumbnail"]["path"]+"/portrait_xlarge.jpg"
 				idcomics.append(idcomic)
-				urlcomics.append(url)
 				imgcomics.append(img)
 		varoffset=varoffset+100
 	
@@ -135,7 +134,6 @@ def busqueda2():
 			for c in js["data"]["results"]:
 				img=c["thumbnail"]["path"]+".jpg"
 				idcomics2.append(idcomic)
-				urlcomics2.append(url)
 				imgcomics2.append(img)
 		varoffset=varoffset+100
 	#for n, u, m in zip(idcomics,urlcomics,imgcomics):
