@@ -7,7 +7,7 @@
 									<section class="contact">
 										<header>
 												<p>
-													Marvelous comics is my personal class proyect. <a href="https://ies.gonzalonazareno.org">IES Gonzalo Nazareno</a>.
+													Marvelous comics is my personal class project. <a href="https://ies.gonzalonazareno.org">IES Gonzalo Nazareno</a>.
 												</p>
 												<p>
 													Created by <strong>Adrián Domínguez Jiménez</strong> <a href="https://github.com/adrian731/Marvelous-Comis">Github</a>
