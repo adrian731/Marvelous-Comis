@@ -104,6 +104,7 @@ def busqueda2():
 		varoffset=varoffset+100
 	
 #Character 2
+	name2=request.forms.get('name2')
 	payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
 	payload['name2']=name2
 	r=requests.get(url_base+'v1/public/characters',params=payload)
