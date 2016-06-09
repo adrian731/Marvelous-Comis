@@ -134,8 +134,6 @@ def busqueda2():
 			print r.url
 			js=json.loads(r.text)
 			for c in js["data"]["results"]:
-				idcomic=c["id"]
-				title=c["name"]
 				img=c["thumbnail"]["path"]+".jpg"
 				idcomics2.append(idcomic)
 				urlcomics2.append(url)
