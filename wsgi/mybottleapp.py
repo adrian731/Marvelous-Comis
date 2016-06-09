@@ -64,7 +64,7 @@ def busqueda1():
 	
 	return template('resultado1.tpl',url=urlcomics,img=imgcomics,idcomic=idcomics)
 	
-""" @post('/resultado2')
+@post('/resultado2')
 def busqueda2():
 	url_base='http://gateway.marvel.com/'
 	name=request.forms.get('name')
@@ -154,8 +154,7 @@ for i1,u,m in zip(idcomics,urlcomics,imgcomics):
 		urlcomicsf.append(u)
 		imgcomics.append(m)
 	return template('resultado2.tpl',img=imgcomicsf,idcomic=idcomics)
-	for k,l,m in zip(idcomicsf,urlcomicsf,imgcomics):
-	print k,"\n"+ l, "\n"+ m"""
+
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
