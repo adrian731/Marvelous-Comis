@@ -106,54 +106,52 @@ def busqueda2():
 		varoffset=varoffset+100
 	
 #Character 2
-payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
-payload['name2']=busqueda2
-r=requests.get(url_base+'v1/public/characters',params=payload)
-if r.status_code == 200:
-	js=json.loads(r.text)
-	idchar=js["data"]["results"][0]["id"]
-	total=js["data"]["results"][0]["comics"]["available"]
-	print idchar, total
-else: 
-	print "No existe ningún personaje con ese nombre"
-
-payload2 = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
-payload2['characters']=idchar 
-payload2['limit']="100"
-r=requests.get(url_base+'v1/public/comics',params=payload)
-
-
-limit=100
-varoffset=0
-idcomics2=[]
-urlcomics2=[]
-imgcomics2=[]
-cantidad=(total//100)+2
-for i in xrange(1,cantidad):
-	payload2['offset']=str(varoffset)
-	r=requests.get(url_base+'v1/public/comics',params=payload2)
+	payload = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
+	payload['name2']=busqueda2
+	r=requests.get(url_base+'v1/public/characters',params=payload)
 	if r.status_code == 200:
-		print r.url
 		js=json.loads(r.text)
-		for c in js["data"]["results"]:
-			idcomic=c["id"]
-			title=c["name"]
-			img=c["thumbnail"]["path"]+".jpg"
-			idcomics2.append(idcomic)
-			urlcomics2.append(url)
-			imgcomics2.append(img)
-	varoffset=varoffset+100
-#for n, u, m in zip(idcomics,urlcomics,imgcomics):
-#	print n,"\n"+ u, "\n"+ m
-idcomicsf=[]
-urlcomicsf=[]
-imgcomicsf=[]
-for i1,u,m in zip(idcomics,urlcomics,imgcomics):
-	if i1 in idcomics2:
-		idcomicsf.append(i1)
-		urlcomicsf.append(u)
-		imgcomics.append(m)
-return template('resultado2.tpl',img=imgcomicsf,idcomic=idcomics)
+		idchar=js["data"]["results"][0]["id"]
+		total=js["data"]["results"][0]["comics"]["available"]
+		print idchar, total
+	else: 
+		print "No existe ningún personaje con ese nombre"
+
+	payload2 = {'apikey':'fcd7230a0d69643d5bd4110504babd72','hash':'fe261e6ba1072612497588694d4e2738','ts':'1'}
+	payload2['characters']=idchar 
+	payload2['limit']="100"
+	r=requests.get(url_base+'v1/public/comics',params=payload)
+	limit=100
+	varoffset=0
+	idcomics2=[]
+	urlcomics2=[]
+	imgcomics2=[]
+	cantidad=(total//100)+2
+	for i in xrange(1,cantidad):
+		payload2['offset']=str(varoffset)
+		r=requests.get(url_base+'v1/public/comics',params=payload2)
+		if r.status_code == 200:
+			print r.url
+			js=json.loads(r.text)
+			for c in js["data"]["results"]:
+				idcomic=c["id"]
+				title=c["name"]
+				img=c["thumbnail"]["path"]+".jpg"
+				idcomics2.append(idcomic)
+				urlcomics2.append(url)
+				imgcomics2.append(img)
+		varoffset=varoffset+100
+	#for n, u, m in zip(idcomics,urlcomics,imgcomics):
+	#	print n,"\n"+ u, "\n"+ m
+	idcomicsf=[]
+	urlcomicsf=[]
+	imgcomicsf=[]
+	for i1,u,m in zip(idcomics,urlcomics,imgcomics):
+		if i1 in idcomics2:
+			idcomicsf.append(i1)
+			urlcomicsf.append(u)
+			imgcomics.append(m)
+	return template('resultado2.tpl',img=imgcomicsf,idcomic=idcomics)
 
 
 @route('/static/<filepath:path>')
