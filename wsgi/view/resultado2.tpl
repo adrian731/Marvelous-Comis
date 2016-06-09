@@ -1,5 +1,5 @@
 %include('header.tpl')
-<body background="/static/images/resultado1.jpg">
+<body background="/static/images/resultado2.jpg">
 		<table>
 		%for x,y in zip(img,idcomic):
 			<tr>
